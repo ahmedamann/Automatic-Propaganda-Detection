@@ -1,0 +1,21 @@
+data:
+  train_path: data/propaganda_train.tsv
+  val_path: data/propaganda_val.tsv
+
+preprocessing:
+  remove_not_propaganda: true
+  bos_token: "<BOS>"
+  eos_token: "<EOS>"
+
+nb:
+  vectorizer:
+    max_features: 10000
+    ngram_range: [1, 2]
+
+distilbert:
+  model_name: "distilbert-base-uncased"
+  max_length: 128
+  batch_size: 16
+  epochs: 3
+  learning_rate: 2e-5
+  device: "cuda" 
