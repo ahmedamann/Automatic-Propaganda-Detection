@@ -1,8 +1,9 @@
 # Automatic Propaganda Detection
 
-This project implements two different approaches for detecting propaganda in text:
+This project implements three different approaches for detecting propaganda in text:
 1. TF-IDF + Multinomial Naive Bayes classifier
 2. DistilBERT transformer model
+3. SpanBERT model for propaganda span detection
 
 ## Features
 
@@ -21,6 +22,13 @@ This project implements two different approaches for detecting propaganda in tex
   - Configurable training parameters
   - Automatic model checkpointing
   - Evaluation metrics tracking
+
+- **SpanBERT Model**:
+  - Token-level propaganda span detection
+  - BIO tagging scheme for span identification
+  - Sequence-level F1 score evaluation
+  - Early stopping with patience
+  - Automatic model checkpointing
 
 ## Setup
 
@@ -54,6 +62,11 @@ python src/models/nb/train_nb.py
 python src/models/distilbert/train_distilbert.py
 ```
 
+4. Train the SpanBERT model:
+```bash
+python src/models/spanbert/train_spanbert.py
+```
+
 ## Model Outputs
 
 - **Naive Bayes**:
@@ -65,12 +78,18 @@ python src/models/distilbert/train_distilbert.py
   - Logs training metrics to `src/models/distilbert/logs/`
   - Outputs evaluation metrics including accuracy
 
+- **SpanBERT**:
+  - Saves model checkpoints to `src/models/spanbert/saved_models/`
+  - Logs training metrics to `src/models/spanbert/logs/`
+  - Outputs sequence-level F1 score for span detection
+
 ## Configuration
 
 The `config.yaml` file allows you to configure:
 - Data paths and preprocessing options
 - TF-IDF vectorizer parameters
 - DistilBERT training parameters
+- SpanBERT training parameters
 - Model saving and logging options
 
 ## Development

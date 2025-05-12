@@ -18,4 +18,13 @@ distilbert:
   batch_size: 16
   epochs: 3
   learning_rate: 2e-5
+  device: "cuda"
+
+spanbert:
+  model_name: "SpanBERT/spanbert-base-cased"
+  max_length: 256
+  batch_size: 16
+  epochs: 15
+  learning_rate: 2e-5
+  weight_decay: 0.01
   device: "cuda" 
